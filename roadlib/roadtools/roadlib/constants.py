@@ -3,7 +3,7 @@ Constants for roadlib containing well-known resources, login templates (xml), et
 """
 
 WELLKNOWN_RESOURCES = {
-    "msgraph": "https://graph.microsoft.com/",
+    "msgraph": "https://graph.microsoft.us/",
     "aadgraph": "https://graph.windows.net/",
     "devicereg": "urn:ms-drs:enterpriseregistration.windows.net",
     "drs": "urn:ms-drs:enterpriseregistration.windows.net",
