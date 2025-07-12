@@ -518,7 +518,7 @@ def main():
 
     # Find scope
     getscope_parser = subparsers.add_parser('getscope', aliases=['findscope'], help='Find first-party apps with the right pre-approved scope')
-    getscope_parser.add_argument('-s', '--scope', default=None, action='store', required=False, metavar='SCOPE', help='Desired scope (API URL + scope on that API, for example https://graph.microsoft.us/files.read).')
+    getscope_parser.add_argument('-s', '--scope', default=None, action='store', required=False, metavar='SCOPE', help='Desired scope (API URL + scope on that API, for example https://graph.microsoft.com/files.read).')
     getscope_parser.add_argument('-a', '--all', action='store_true', help='List all scopes instead')
     getscope_parser.add_argument('--foci', action='store_true', help='Only list FOCI clients')
     getscope_parser.add_argument('--all-clients', action='store_true', help='List all clients instead of public clients only (may require advanced auth flow to use)')
@@ -1349,7 +1349,7 @@ def main():
         print('Well-known resources. Can be used as alias with -r or --resource')
         print()
         for alias, resourceurl in WELLKNOWN_RESOURCES.items():
-            print(f"{alias:<10} - {resourceurl}")
+            print(f"{alias:<12} - {resourceurl}")
         print()
         print('Well-known user agents. Can be used as alias with -ua or --user-agent')
         print()
@@ -1748,7 +1748,7 @@ def main():
             resource, scope = args.scope.lower().rsplit('/', 1)
         except ValueError:
             print("No resource (API) specified in scope, defaulting to Microsoft Graph")
-            resource = "https://graph.microsoft.us"
+            resource = "https://graph.microsoft.com"
             scope = args.scope.lower()
 
         try:
