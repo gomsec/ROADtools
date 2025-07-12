@@ -62,6 +62,37 @@ See [this Wiki page](https://github.com/dirkjanm/ROADtools/wiki/Getting-started-
 
 roadtx is a tool for exchanging and using different types of Azure AD issued tokens. It supports many different authentication flows, device registration and PRT related operations. For an overview of the tool, see the [roadtx Wiki](https://github.com/dirkjanm/ROADtools/wiki/ROADtools-Token-eXchange-(roadtx)).
 
+### Target Resource Selection
+roadtx provides comprehensive target resource selection functionality that allows you to authenticate to different Azure AD resources and APIs:
+
+**Available Resources**
+- Use the `listaliases` command to view all available well-known resources and their aliases:
+  ```bash
+  roadtx listaliases
+  ```
+  This displays well-known clients, resources, and user agents that can be used as aliases.
+
+**Resource Selection**
+- Use the `-r` or `--resource` parameter to specify target resources for authentication:
+  ```bash
+  roadtx gettokens -r https://graph.microsoft.com
+  roadtx gettokens -r graph  # Using alias
+  ```
+
+**Resource Switching**
+- Use the `refreshtokento` command to switch between different resources using cached refresh tokens:
+  ```bash
+  roadtx refreshtokento -r https://outlook.office.com
+  roadtx refreshtokento -r https://graph.microsoft.com
+  ```
+
+**Common Resource Aliases**
+- `graph` - Microsoft Graph API
+- `outlook` - Outlook/Exchange Online
+- `sharepoint` - SharePoint Online
+- `teams` - Microsoft Teams
+- `azure` - Azure Management API
+
 ### Installation
 There are multiple ways to install roadtx. Note that roadtx requires Python 3.7 or newer.
 
